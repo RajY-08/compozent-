@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Website</title>
+    <link rel="stylesheet" href="quizcss.css">
+</head>
+<body>
+     <!-- Question 1 -->
+     <div>
+        <p>1. What is the capital of France?</p>
+        <input type="radio" id="q1a" name="q1" value="a">
+        <label for="q1a">A) Berlin</label><br>
+        <input type="radio" id="q1b" name="q1" value="b">
+        <label for="q1b">B) Madrid</label><br>
+        <input type="radio" id="q1c" name="q1" value="c">
+        <label for="q1c">C) Paris</label><br>
+        <input type="radio" id="q1d" name="q1" value="d">
+        <label for="q1d">D) Rome</label>
+    </div>
+
+    <!-- Question 2 -->
+    <div>
+        <p>2. Who wrote the book 'Harry Potter'?</p>
+        <input type="radio" id="q2a" name="q2" value="a">
+        <label for="q2a">A) J.R.R. Tolkien</label><br>
+        <input type="radio" id="q2b" name="q2" value="b">
+        <label for="q2b">B) J.K. Rowling</label><br>
+        <input type="radio" id="q2c" name="q2" value="c">
+        <label for="q2c">C) George R.R. Martin</label><br>
+        <input type="radio" id="q2d" name="q2" value="d">
+        <label for="q2d">D) Stephen King</label>
+    </div>
+
+    <!-- Question 3 -->
+    <div>
+        <p>3. What is the square root of 64?</p>
+        <input type="radio" id="q3a" name="q3" value="a">
+        <label for="q3a">A) 6</label><br>
+        <input type="radio" id="q3b" name="q3" value="b">
+        <label for="q3b">B) 7</label><br>
+        <input type="radio" id="q3c" name="q3" value="c">
+        <label for="q3c">C) 8</label><br>
+        <input type="radio" id="q3d" name="q3" value="d">
+        <label for="q3d">D) 9</label>
+    </div>
+
+    <button onclick="checkAnswers()">Submit</button>
+
+    <p id="result"></p>
+
+    <script>
+        function checkAnswers() {
+            let score = 0;
+            const correctAnswers = {
+                q1: 'c',
+                q2: 'b',
+                q3: 'c'
+            };
+
+            for (let question in correctAnswers) {
+                const selected = document.querySelector(`input[name="${question}"]:checked`);
+                if (selected && selected.value === correctAnswers[question]) {
+                    score++;
+                }
+            }
+
+            document.getElementById('result').innerText = `You scored ${score}/3!`;
+        }
+    </script>
+
+</body>
+</html>
